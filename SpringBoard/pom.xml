@@ -46,6 +46,12 @@
 		    <version>8.0.31</version>
 		</dependency>
 		
+		<!-- 구글 소셜 로그인 구현 -->
+		<dependency>
+			<groupId>org.springframework.social</groupId>
+			<artifactId>spring-social-google</artifactId>
+			<version>1.0.0.RELEASE</version>
+		</dependency>
 	</dependencies>
 	
 	<build>

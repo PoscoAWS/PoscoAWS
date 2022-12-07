@@ -24,7 +24,7 @@
  <tbody>
 	 <c:forEach var="listArray" items="${allList}">
 	 <tr>
-             <td class="text_ct"><a href="${path}detail.do?id=${listArray.id}">${listArray.name}&nbsp;</a></td>
+            <td class="text_ct"><a href="detail.do?boardNo=${listArray.boardNo}">${listArray.title}</a></td>
             <td class="text_ct">${listArray.id}</td>
             <td class="text_ct">${listArray.title}</td>
             <td class="text_ct">${listArray.contents}</td>

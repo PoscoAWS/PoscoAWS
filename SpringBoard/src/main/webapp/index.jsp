@@ -23,5 +23,5 @@
 			"<a href='logout'>로그아웃</a><br/>");
 	%>
 	<a href="newUser">회원 가입</a><br/>
-	<a href="list.do">게시판</a><br/>
+	<a href="boardList">게시판</a><br/>
 </body>
