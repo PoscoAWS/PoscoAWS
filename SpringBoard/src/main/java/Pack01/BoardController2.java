@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class BoardController2 {
 
 	@RequestMapping(value="list.do", method=RequestMethod.GET)
-	public String getList(Model model) {
+	public String getList(HttpServletRequest request, Model model) {
 		List<BoardVO> allList = BoardListDao.getList();
 		model.addAttribute("allList", allList);
 		return "list";

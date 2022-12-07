@@ -41,10 +41,10 @@ public class BoardListDao {
 		    
 		    while(rs.next()) {
 		    	
-		    	String name = rs.getString("name");
+		    	int boardNo = rs.getInt("boardNo");
 
 				String id = rs.getString("id");
-
+				String name = rs.getString("name");
 				String title = rs.getString("title");
 
 				String contents = rs.getString("contents");
