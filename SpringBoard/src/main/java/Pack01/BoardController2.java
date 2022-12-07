@@ -1,6 +1,8 @@
 package Pack01;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,8 +24,23 @@ public class BoardController2 {
     }
 	
 	@RequestMapping(value = "create2.do", method = RequestMethod.POST)
-    public String postcreate() throws Exception {
-       return "redirect:list";
+    public String postcreate(HttpServletRequest request, Model model) throws Exception {
+		String id = request.getParameter("id");
+		String name = request.getParameter("name");
+		String title = request.getParameter("title");
+		String contents = request.getParameter("contents");
+		String file = request.getParameter("uploadFile");
+		
+		BoardVO board = new BoardVO();
+		board.setId(id);
+		board.setName(name);
+		board.setTitle(title);
+		board.setContents(contents);
+		board.setFile(file);
+		
+		BoardCreateDao.boardInsert(board);
+		return "redirect:list.do";
+		
     }
 	
 	@RequestMapping(value = "detail.do", method = RequestMethod.GET)

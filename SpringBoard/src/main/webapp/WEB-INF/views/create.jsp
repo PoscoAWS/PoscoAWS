@@ -15,7 +15,7 @@ margin: 5px 25px; padding: 20px
 <title>Create</title>
 </head>
 <body>
-    <form class="center" method="post">
+    <form action = "create2.do" class="center" method="post">
         <h2>Create Page</h2>
         <div class="form-group">
               <label>ID</label>
@@ -33,8 +33,12 @@ margin: 5px 25px; padding: 20px
             <label>Contents</label>
             <input class="form-control" name="contents" placeholder="내용 적어주세요.">
         </div>
+        <div class="form-group">
+            <label>file</label>
+            <input  class="form-control" type="file" name="uploadFile"><br>
+        </div>
        
-    <button type="submit" class="btn btn-outline-info"><a href="create2.do">등록</button>
+    <button type="submit" class="btn btn-outline-info">등록</button>
     <button type="submit" class="btn btn-outline-info"><a href="list.do">돌아가기</a></button>
     </form>
 </body>
