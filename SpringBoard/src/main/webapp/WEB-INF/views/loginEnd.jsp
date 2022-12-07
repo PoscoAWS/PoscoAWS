@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
@@ -13,11 +13,11 @@
 		if (name != null) {
 			session.setAttribute("name", name);
 			session.setAttribute("id", id);
-			out.print("<h1>·Î±×ÀÎ ¼º°ø</h1>");
+			out.print("<h1>ë¡œê·¸ì¸ ì„±ê³µ</h1>");
 		} else {			
-			out.print("<h1>·Î±×ÀÎ ½ÇÆĞ</h1>");
+			out.print("<h1>ë¡œê·¸ì¸ ì‹¤íŒ¨</h1>");
 		}
 	%>
-	<a href="index.jsp">Ã³À½À¸·Î</a><br/>
+	<a href="index.jsp">ì²˜ìŒìœ¼ë¡œ</a><br/>
 </body>
 </html>

@@ -42,6 +42,8 @@ public class BoardListDao {
 		    
 		    while(rs.next()) {
 		    	
+		    	int boardNo = rs.getInt("boardNo");
+		    	
 		    	String name = rs.getString("name");
 
 				String id = rs.getString("id");
@@ -49,10 +51,10 @@ public class BoardListDao {
 				String title = rs.getString("title");
 
 				String contents = rs.getString("contents");
-
+				
 				Date date = rs.getDate("date");	
 				
-				list.add(new BoardVO(name, id, title, contents, date));
+				list.add(new BoardVO(boardNo, name, id, title, contents, date));
 		    }
 		    
 		    return list;
