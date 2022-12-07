@@ -14,5 +14,9 @@
 		<input type="number" name="pw" value="1234" /><br/>	
 		<input type="submit" value="ë¡œê·¸ì¸" /><br/>	
 	</form>
+
+	<div id="google_id_login" style="text-align: center">
+		<a href="${google_url}"> ±¸±Û ·Î±×ÀÎ </a>
+	</div>
 </body>
 </html>

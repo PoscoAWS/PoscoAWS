@@ -1,5 +1,4 @@
 package Pack01;
-
 import java.util.Date;
 
 public class BoardVO {
@@ -9,7 +8,9 @@ public class BoardVO {
 	String title;
 	String contents;
 	Date date;
+	
 	public BoardVO() {}
+	
 	public BoardVO(int boardNo, String name, String id, String title, String contents, Date date) {
 		super();
 		this.boardNo = boardNo;
@@ -67,8 +68,5 @@ public class BoardVO {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-
-	
-	
 	
 }

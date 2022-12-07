@@ -73,6 +73,7 @@ public class BoardController2 {
 		
        return "update";
     }
+	
 	@RequestMapping(value = "update.do", method = RequestMethod.POST)
     public String getupdate2(Model model, BoardVO board) {
 		
@@ -83,6 +84,4 @@ public class BoardController2 {
 		model.addAttribute("allList", allList);
 		return "list";
 	}
-	
-	
 }

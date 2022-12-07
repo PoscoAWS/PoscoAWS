@@ -40,7 +40,7 @@ public class BoardDao {
 		} 
 		return res;
 	}
-	
+
 	public void updateBoard(BoardVO board) {
 		String sql_update = "UPDATE board SET title=?, contents=?, date=now() WHERE boardNo=?";
 		
@@ -76,5 +76,4 @@ public class BoardDao {
 			e.printStackTrace();
 		} 
 	}
-	
 }

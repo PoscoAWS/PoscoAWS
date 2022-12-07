@@ -23,6 +23,7 @@ public class BoardController {
 		model.addAttribute("allList", allList);
 		return "list";
 	}
+	
 	@RequestMapping(value="delete.do", method=RequestMethod.GET)
 	public String deleteBoard(Model model,
 			@RequestParam(value="boardNo") int boardNo) {
@@ -34,6 +35,18 @@ public class BoardController {
 		model.addAttribute("allList", allList);
 		return "list";
 	}
+	
+//	@RequestMapping(value = "detail.do", method = RequestMethod.GET)
+//    public String getdetail(Model model, @RequestParam(value="boardNo") int boardNo) {
+//		List<BoardVO> allList = boardDao.getList();
+//		BoardVO listArray = null;
+//		for (BoardVO boardVO : allList) {
+//			if (boardVO.getBoardNo() == boardNo)
+//				listArray = boardVO;
+//		}
+//		model.addAttribute("listArray", listArray);
+//       return "detail";
+//    }
 }
 
 
