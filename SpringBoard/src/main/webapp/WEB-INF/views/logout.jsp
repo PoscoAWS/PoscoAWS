@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>logout.jsp</h1>
 	<% session.invalidate(); %>
 	<h1>로그아웃</h1>
 	<a href="index.jsp">처음으로</a><br/>

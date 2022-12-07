@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>loginEnd.jsp</h1>
 	<%
 		String name = (String)request.getAttribute("name");
 		String id = (String)request.getAttribute("id");

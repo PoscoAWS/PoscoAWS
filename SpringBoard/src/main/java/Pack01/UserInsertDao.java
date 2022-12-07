@@ -12,7 +12,7 @@ public class UserInsertDao {
 		this.user = user;
 	}
 	
-	public void insertUser() {
+	public boolean insertUser() {
 		try {
 			String url = MysqlAddr.URL;
 			String user = MysqlAddr.USER;
@@ -36,8 +36,10 @@ public class UserInsertDao {
 			
 			psmt.close();
 			con.close();
+			
+			return true;
 		} catch (Exception e) {
-			e.printStackTrace();
+			return false;
 		}
 	}
 	 

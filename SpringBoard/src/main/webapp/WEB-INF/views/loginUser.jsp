@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>loginUser.jsp</h1>
 	<form method=post action="loginUser">	
 		<label>¾ÆÀÌµğ </label>
 		<input type="text" name="id" value="hdh" /><br/>	
