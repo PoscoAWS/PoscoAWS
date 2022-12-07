@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>newUser.jsp</h1>
 	<form method=post action="insertUser">
 		<label>이름 </label>
 		<input type="text" name="name" value="동현" /><br/>	

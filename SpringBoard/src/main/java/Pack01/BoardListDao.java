@@ -35,6 +35,7 @@ public class BoardListDao {
 			List<BoardVO> list = new ArrayList<>();
 			
 			String sql = "select * from board";
+			
 			psmt = con.prepareStatement(sql);
 			
 		    rs = stmt.executeQuery(sql);
@@ -42,15 +43,18 @@ public class BoardListDao {
 		    while(rs.next()) {
 		    	
 		    	int boardNo = rs.getInt("boardNo");
+		    	
+		    	String name = rs.getString("name");
 
 				String id = rs.getString("id");
-				String name = rs.getString("name");
+
 				String title = rs.getString("title");
 
 				String contents = rs.getString("contents");
-
+				
 				Date date = rs.getDate("date");	
 				
+				list.add(new BoardVO(boardNo, name, id, title, contents, date));
 		    }
 		    
 		    return list;

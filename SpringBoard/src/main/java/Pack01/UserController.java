@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class LoginUser {
+public class UserController {
 	@RequestMapping("loginUser")
 	public String loginUser(Model model,
 			@RequestParam(value="id") String id,
@@ -20,5 +20,15 @@ public class LoginUser {
 		
 		
 		return "loginEnd";
+	}
+	@RequestMapping("insertUser")
+	public String insertUser(Model model, UserVO user) {
+		
+		UserInsertDao insertDao = new UserInsertDao(user);
+		
+		boolean result = insertDao.insertUser();
+		model.addAttribute("result", result);
+		
+		return "userInsertEndView";
 	}
 }

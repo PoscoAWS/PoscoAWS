@@ -1,14 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 	<h1>userInsertEndView.jsp</h1>
-	<h1>х╦©Ь╟║ют ╪╨╟Ь</h1>
-	<a href="index.jsp">цЁю╫ю╦╥н</a><br/>
+	<%
+		boolean result = (boolean)request.getAttribute("result");
+		out.println(result ? "<h1>М ▄Л⌡░Й╟─Л·┘ Л└╠ЙЁ╣</h1>" : "<h1>М ▄Л⌡░Й╟─Л·┘ Л▀╓М▄╗</h1>");
+	%>
+	<a href="index.jsp">Л╡≤Л²▄Л°╪К║°</a><br/>
 </body>
 </html>
