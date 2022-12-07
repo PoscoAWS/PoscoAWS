@@ -13,7 +13,7 @@
 <table>
  <thead>
   <tr>
-  <th scope="col">번호</th>
+  <th scope="col">글작성자</th>
   <th scope="col">ID</th>
   <th scope="col">제목</th>
   <th scope="col">내용</th>
@@ -22,17 +22,18 @@
  </thead>
  
  <tbody>
-	 <c:forEach items="${list}" var="list">
+	 <c:forEach var="listArray" items="${allList}">
 	 <tr>
-            <td class="text_ct">${list.no}&nbsp;</td>
-            <td class="text_ct">${list.id}&nbsp;</td>
-            <td class="text_ct">${list.title}&nbsp;</td>
-            <td class="text_ct">${list.contents}&nbsp;</td>
-            <td class="text_ct"><fmt:formatDate value="${list.date}" pattern="yyyy/MM/dd" /></td>
+             <td class="text_ct"><a href="${path}detail.do?id=${listArray.id}">${listArray.name}&nbsp;</a></td>
+            <td class="text_ct">${listArray.id}</td>
+            <td class="text_ct">${listArray.title}</td>
+            <td class="text_ct">${listArray.contents}</td>
+            <td class="text_ct"><fmt:formatDate value="${listArray.date}" pattern="yyyy/MM/dd" /></td>
 	 </tr>
 	</c:forEach>
  </tbody> 
 </table>
 </form>
+<a href="create.do">게시글 작성</a><br/>
 </body>
 </html>

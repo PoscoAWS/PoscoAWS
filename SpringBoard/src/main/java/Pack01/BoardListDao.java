@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class BoardListDao {
@@ -17,7 +18,7 @@ public class BoardListDao {
 	BoardListDao(BoardVO board){
 		this.board = board;
 	}
-	public List<BoardVO> getList() {
+	public static List<BoardVO> getList() {
 		try {
 			String url = MysqlAddr.URL;
 			String user = MysqlAddr.USER;
@@ -41,7 +42,7 @@ public class BoardListDao {
 		    
 		    while(rs.next()) {
 		    	
-		    	int no = rs.getInt("no");
+		    	String name = rs.getString("name");
 
 				String id = rs.getString("id");
 
@@ -49,9 +50,9 @@ public class BoardListDao {
 
 				String contents = rs.getString("contents");
 
-				Timestamp date = rs.getTimestamp("date");	
+				Date date = rs.getDate("date");	
 				
-				list.add(new BoardVO(no, id, title, contents, date));
+				list.add(new BoardVO(name, id, title, contents, date));
 		    }
 		    
 		    return list;
