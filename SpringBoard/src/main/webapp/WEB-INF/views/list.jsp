@@ -42,6 +42,7 @@
 	out.println((id != null) ? 
 	"<a href='create.do'>게시글 작성</a><br/>" : "");
 %>
+<a href="index.jsp">처음으로</a><br/>
 
 </body>
 </html>

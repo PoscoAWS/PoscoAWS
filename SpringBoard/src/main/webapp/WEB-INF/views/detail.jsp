@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="Pack01.board.CommentVO"%>
 <%@page import="Pack01.BoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -73,15 +75,62 @@
     <a id="kakao-link-btn" href="javascript:kakaoShare()">
     	<img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" />
     </a>
-    <%
+	
+	<%
 		String id = (String)session.getAttribute("id");
-    	BoardVO board = (BoardVO)request.getAttribute("listArray");
+		String name = (String)session.getAttribute("name");
+		BoardVO board = (BoardVO)request.getAttribute("listArray");
+		List<CommentVO> commentList = (List<CommentVO>)request.getAttribute("commentList");
+		if (id != null) {
+	%>
+	<form method=post action="insertComment">
+		<input type="hidden" name="boardNo" value=<%=board.getBoardNo()%> readonly="readonly" />	
+		<input type="hidden" name="name" value=<%=name%> readonly="readonly" />	
+		<input type="hidden" name="id" value=<%=id%> readonly="readonly"/>
+		<label>댓글 내용 </label>
+		<input type="text" name="comment" />
+		<input type="submit" value="댓글 작성" /><br/>	
+	</form>
+	<% } %>
+
+	<table border="1">
+		<thead>
+			<tr>
+				<th scope="col">댓글작성자</th>
+				<th scope="col">댓글작성자 ID</th>
+				<th scope="col">댓글 내용</th>
+				<th scope="col">댓글 작성일</th>
+				<th scope="col">삭제</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<%for(CommentVO comment : commentList) {%>
+				<tr>
+					<td class="text_ct"><%=comment.getName() %></td>
+					<td class="text_ct"><%=comment.getId() %></td>
+					<td class="text_ct"><%=comment.getComment() %></td>
+					<td class="text_ct"><fmt:formatDate value="<%=comment.getDate() %>"
+							pattern="yyyy/MM/dd" /></td>
+					<% if ((id != null ) && ((id.equals(board.getId())) || (id.equals(comment.getId())))) { %>
+					<td class="text_ct">
+						<a href='deleteCommet?commentNo=<%=comment.getCommentNo() %>&
+						boardNo=${listArray.boardNo}'>
+						삭제</a>
+					</td>
+					<% } %>
+				</tr>
+			<% } %>
+		</tbody>
+	</table>
+
+	<%
     	System.out.println(board.getId());
     	if (id != null && id.equals(board.getId()))
     		out.println("<a href='update.do?boardNo="+board.getBoardNo() +"'>수정</a></br>");
     	if (id != null && id.equals(board.getId()))
-    		out.println("<a href='delete.do?boardNo="+board.getBoardNo() +"'>삭제</a>");
+    		out.println("<a href='delete.do?boardNo="+board.getBoardNo() +"'>삭제</a></br>");
 	%>
-    
+    <a href="boardList">게시판으로</a><br/>
 </body>
 </html>
