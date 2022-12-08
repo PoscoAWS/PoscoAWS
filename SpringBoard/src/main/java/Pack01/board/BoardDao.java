@@ -76,4 +76,73 @@ public class BoardDao {
 			e.printStackTrace();
 		} 
 	}
+	
+	public void insertCommet(CommentDTO comment) {
+		String sql = "insert into comments values(NULL,?,?,?,?,now())";
+		
+		
+		try(Connection con = JdbcTemplate.getConnection();
+			PreparedStatement pstm = con.prepareStatement(sql);) {
+			
+			pstm.setInt(1, comment.getBoardNo());
+			pstm.setString(2, comment.getId());
+			pstm.setString(3, comment.getName());
+			pstm.setString(4, comment.getComment());
+			
+			pstm.executeUpdate();
+			
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+	}
+	
+	public List<CommentVO> getCommets(int boardNo) {
+		String sql = "select * from comments where boardNo=?";
+		ArrayList<CommentVO> res = null;
+		
+		try(Connection con = JdbcTemplate.getConnection();
+				PreparedStatement pstm = con.prepareStatement(sql);) {
+			
+			pstm.setInt(1, boardNo);
+			
+			ResultSet rs = pstm.executeQuery();
+			
+			if(rs != null) {
+				res = new ArrayList<CommentVO>();
+				while(rs.next()) {
+					CommentVO comment = new CommentVO();					
+					comment.setCommentNo(rs.getInt("commentNo"));
+					comment.setBoardNo(rs.getInt("boardNo"));
+					comment.setName(rs.getString("name"));
+					comment.setId(rs.getString("id"));
+					comment.setComment(rs.getString("comment"));
+					comment.setDate(rs.getDate("date"));
+					res.add(comment);
+				}
+			}
+			
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+	
+	public void deleteCommet(int commentNo) {
+		String sql = "delete from comments WHERE commentNo=?";
+		
+		
+		try(Connection con = JdbcTemplate.getConnection();
+			PreparedStatement pstm = con.prepareStatement(sql);) {
+			
+			pstm.setInt(1, commentNo);
+				
+			pstm.executeUpdate();
+			
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+	}
 }

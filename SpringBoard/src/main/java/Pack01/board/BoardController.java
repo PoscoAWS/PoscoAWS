@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import Pack01.BoardListDao;
 import Pack01.BoardVO;
 
 @Controller
@@ -47,6 +48,45 @@ public class BoardController {
 //		model.addAttribute("listArray", listArray);
 //       return "detail";
 //    }
+	@RequestMapping(value="insertComment", method=RequestMethod.POST)
+	public String insertComment(Model model,
+			CommentDTO comment) {
+		
+		BoardDao boardDao = new BoardDao();
+		boardDao.insertCommet(comment);
+		List<CommentVO> commentList =  boardDao.getCommets(comment.getBoardNo());
+		List<BoardVO> allList = BoardListDao.getList();
+		BoardVO listArray = null;
+		for (BoardVO boardVO : allList) {
+			if (boardVO.getBoardNo() == comment.getBoardNo())
+				listArray = boardVO;
+		}
+		model.addAttribute("listArray", listArray);
+		model.addAttribute("commentList", commentList);
+		return "detail";
+	}
+	
+	@RequestMapping(value="deleteCommet", method=RequestMethod.GET)
+	public String deleteCommet(Model model,
+			@RequestParam(value="commentNo") int commentNo,
+			@RequestParam(value="boardNo") int boardNo) {
+		
+		BoardDao boardDao = new BoardDao();
+		
+		boardDao.deleteCommet(commentNo);
+		
+		
+		List<CommentVO> commentList =  boardDao.getCommets(boardNo);
+		List<BoardVO> allList = BoardListDao.getList();
+		BoardVO listArray = null;
+		for (BoardVO boardVO : allList) {
+			if (boardVO.getBoardNo() == boardNo)
+				listArray = boardVO;
+		}
+		model.addAttribute("listArray", listArray);
+		model.addAttribute("commentList", commentList);
+		return "detail";
+	}
 }
 
 

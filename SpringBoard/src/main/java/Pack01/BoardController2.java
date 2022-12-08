@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import Pack01.board.BoardDao;
+import Pack01.board.CommentVO;
 
 @Controller
 public class BoardController2 {
@@ -55,7 +56,12 @@ public class BoardController2 {
 			if (boardVO.boardNo == boardNo)
 				listArray = boardVO;
 		}
+		
+		BoardDao boardDao = new BoardDao();
+		List<CommentVO> commentList =  boardDao.getCommets(boardNo);
+		
 		model.addAttribute("listArray", listArray);
+		model.addAttribute("commentList", commentList);
        return "detail";
     }
 	
