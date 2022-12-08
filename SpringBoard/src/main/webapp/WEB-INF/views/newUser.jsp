@@ -138,18 +138,19 @@ display: block;
     height: 550px;
 }
 </style>
+
 <body>
 
-<form action="doJoin" method="POST" class="joinForm" onsubmit="DoJoinForm__submit(this); return false;">                                                  
+<form action='insertUser' method="POST" class="joinForm" >                                                  
       <h2>회원 가입</h2>
       <div class="textForm">
-        <input name="loginId" type="text" class="id" placeholder="아이디">
+        <input name="id" type="text" class="id" placeholder="아이디" >
       </div>
       <div class="textForm">
-        <input name="loginPw" type="password" class="pw" placeholder="비밀번호">
+        <input name="pw" type="password" class="pw" placeholder="비밀번호">
       </div>
        <div class="textForm">
-        <input name="loginPwConfirm" type="password" class="pw" placeholder="비밀번호 확인">
+        <input type="password" class="pw" placeholder="비밀번호 확인">
       </div>
       <div class="textForm">
         <input name="name" type="text" class="name" placeholder="이름">

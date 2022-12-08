@@ -3,7 +3,7 @@ package Pack01;
 public class UserVO {
 	String name;
 	String id;
-	int pw;
+	String pw;
 	public String getName() {
 		return name;
 	}
@@ -16,10 +16,10 @@ public class UserVO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public int getPw() {
+	public String getPw() {
 		return pw;
 	}
-	public void setPw(int pw) {
+	public void setPw(String pw) {
 		this.pw = pw;
 	}
 	

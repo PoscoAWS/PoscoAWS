@@ -199,7 +199,7 @@ a:hover{
       <img src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/bg.svg">
     </div>
     <div class="login-content">
-      <form>
+      <form method=post action="loginUser">
         <img src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/avatar.svg">
         <h2 class="title" style = "font-size: 35px;">포스코ICT 2조 게시판</h2>
               <div class="input-div one">
@@ -208,7 +208,7 @@ a:hover{
                  </div>
                  <div class="div">
                     <h5>Username</h5>
-                    <input type="text" class="input">
+                    <input type="text" class="input" name="id">
                  </div>
               </div>
               <div class="input-div pass">
@@ -217,10 +217,10 @@ a:hover{
                  </div>
                  <div class="div">
                     <h5>Password</h5>
-                    <input type="password" class="input">
+                    <input type="password" class="input" name="pw">
                  </div>
               </div>
-          		<a href='login' class="btn" style ="text-align: center; padding-top: 10px; font-weight: bold;">로그인</a>
+          		<input type="submit" class="btn" style ="text-align: center; padding-top: 10px; font-weight: bold;" value='로그인'/>
               <a href="newUser" class="btn" style ="text-align: center; padding-top: 10px; font-weight: bold;">회원 가입</a><br/>
               <a href="boardList" class="btn" style = "text-align: center; padding-top: 10px; position: relative; bottom: 40px; font-weight: bold;">게시판</a><br/>
             </form>

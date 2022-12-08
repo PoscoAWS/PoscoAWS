@@ -89,7 +89,15 @@ text-align:center;
 }
 </style>
 </head>
-
+<%
+	String name = (String)request.getAttribute("name");
+	String id = (String)request.getAttribute("id");
+	if (name != null) {
+		session.setAttribute("name", name);
+		session.setAttribute("id", id);
+	}
+	
+%>
 <body>
 
         <h1 class = "a">포스코ICT 게시판</h1>
@@ -113,7 +121,7 @@ text-align:center;
             <td class="text_ct"><a href="detail.do?boardNo=${listArray.boardNo}">${listArray.title}</a></td>
             <td class="text_ct">${listArray.contents}</td>
             <td class="text_ct"><fmt:formatDate value="${listArray.date}" pattern="yyyy/MM/dd" /></td>
-            <td class="text_ct">${listArray.file}</td>
+            
 	 </tr>
 	</c:forEach>
  </tbody> 
@@ -122,11 +130,14 @@ text-align:center;
         </tfoot>
     </table>
     <%
-	String id = (String)session.getAttribute("id");
-	out.println((id != null) ? 
-	"<a href='create.do' class='btn'>게시글 작성</a><br/>" : "");
+	String id2 = (String)session.getAttribute("id");
+    
+    if(id2 != null) {
+    	out.println("<a href='create.do' class='btn'>게시글 작성</a><br/><a href='logout' class='btn'>로그아웃</a><br/>");
+    } else {
+    	out.println("<a href='index2.jsp' class='btn'>처음으로</a><br/>");
+    }
 %>
-<a href="index.jsp">처음으로</a><br/>
 
 </body>
 <%@ include file="../fix/footer.jsp" %>

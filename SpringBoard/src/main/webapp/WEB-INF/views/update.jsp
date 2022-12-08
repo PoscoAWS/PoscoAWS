@@ -107,7 +107,7 @@ border-top: 2px solid;
         </div>	
    
    <button type="submit" class="btn" style = "font-weight: bold;">돌아가기</button>
-    <button type="submit" class="btn" style ="margin-right:10px;"><a href="list.do" style = "color: white; text-decoration:none; font-weight: bold;">수정 완료</a></button>    
+    <button type="submit" class="btn" style ="margin-right:10px; color: white; text-decoration:none; font-weight: bold;">수정 완료</button>    
     
    
     </form>

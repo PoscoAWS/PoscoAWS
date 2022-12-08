@@ -30,7 +30,7 @@ public class UserInsertDao {
 			
 			psmt.setString(1, this.user.getName());
 			psmt.setString(2, this.user.getId());
-			psmt.setInt(3, this.user.getPw());
+			psmt.setString(3, this.user.getPw());
 			
 			psmt.executeUpdate();
 			

@@ -84,12 +84,12 @@ border-top: 2px solid;
 
         <div class="form-group">
             <label>파일</label>
-            <input  class="form-control" type="file" name="uploadFile"><br>
+            <input  class="form-control" type="file" name="file"><br>
         </div>
         </div>	
    
-    <button type="submit" class="btn" style="margin-right:10px; font-weight: bold;">등록</button>
     <button type="submit" class="btn"><a href="list.do" style = "color: white; text-decoration:none; font-weight: bold;">돌아가기</a></button>    
+    <button type="submit" class="btn" style="margin-right:10px; font-weight: bold;">등록</button>
    
 
     </form>

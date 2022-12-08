@@ -8,12 +8,12 @@ import java.sql.Statement;
 
 public class LoginDao {
 	String id;
-	int pw;
+	String pw;
 	LoginDao(){}
 	LoginDao(String id){
 		this.id = id;
 	}
-	LoginDao(String id, int pw){
+	LoginDao(String id, String pw){
 		this.id = id;
 		this.pw = pw;
 	}
@@ -35,7 +35,7 @@ public class LoginDao {
 		    rs = stmt.executeQuery(sql);
 		    
 		    while(rs.next()) {
-		    	return (rs.getInt(1) == pw) ? rs.getString(2) : null;		    	
+		    	return (pw.equals(rs.getString(1))) ? rs.getString(2) : null;		    	
 		    }
 			
 		} catch (Exception e) {
