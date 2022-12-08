@@ -43,6 +43,7 @@ public class BoardController2 {
     		HttpServletRequest request,
     		Model model) throws Exception {
 		
+
 		String currDir = BoardController2.class.getResource(".").getPath();
 		
 		
@@ -69,6 +70,7 @@ public class BoardController2 {
 		file.transferTo(file1);
 		// model로 저장
 		model.addAttribute("originalFileName", savedFileName);
+
 		
 		BoardVO board = new BoardVO();
 		board.setId(id);
@@ -76,6 +78,7 @@ public class BoardController2 {
 		board.setTitle(title);
 		board.setContents(contents);
 		board.setFile(savedFileName);
+
 		
 		
 		BoardCreateDao.boardInsert(board);

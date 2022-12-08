@@ -1,5 +1,12 @@
 package Pack01;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,12 +15,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
 @Controller
 public class UserController {
 	@RequestMapping("loginUser")
 	public String loginUser(Model model,
 			@RequestParam(value="id") String id,
-			@RequestParam(value="pw") int pw) {
+			@RequestParam(value="pw") String pw
+			, HttpServletRequest request
+            , HttpServletResponse response) {
 		
 		LoginDao login = new LoginDao(id, pw);
 		String name = login.loginUser();
@@ -21,8 +31,14 @@ public class UserController {
 		model.addAttribute("name", name);
 		model.addAttribute("id", id);
 		
+		if (name == null) {	
+			return "loginEnd";
+		} else {
+			List<BoardVO> allList = BoardListDao.getList();
+			model.addAttribute("allList", allList);
+			return "list";		
+		}
 		
-		return "loginEnd";
 	}
 
 	@RequestMapping("insertUser")
@@ -52,7 +68,9 @@ public class UserController {
 		model.addAttribute("name", name);
 		model.addAttribute("id", id);
 		
-		return "loginEnd";
+		List<BoardVO> allList = BoardListDao.getList();
+		model.addAttribute("allList", allList);
+		return "list";	
 	}
 
 	@RequestMapping(value="kakaoSignUp", produces = "application/json; charset=UTF-8")

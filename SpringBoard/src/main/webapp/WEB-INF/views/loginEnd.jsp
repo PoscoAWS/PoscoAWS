@@ -8,6 +8,7 @@
 </head>
 <body>
 	<%
+		response.sendRedirect("index.jsp");
 		String name = (String)request.getAttribute("name");
 		String id = (String)request.getAttribute("id");
 		if (name != null) {
