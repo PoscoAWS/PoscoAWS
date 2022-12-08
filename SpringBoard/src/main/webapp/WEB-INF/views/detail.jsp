@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="Pack01.board.CommentVO"%>
 <%@page import="Pack01.BoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -77,6 +78,7 @@
 		String id = (String)session.getAttribute("id");
 		String name = (String)session.getAttribute("name");
 		BoardVO board = (BoardVO)request.getAttribute("listArray");
+		List<CommentVO> commentList = (List<CommentVO>)request.getAttribute("commentList");
 		if (id != null) {
 	%>
 	<form method=post action="insertComment">
@@ -96,29 +98,27 @@
 				<th scope="col">댓글작성자 ID</th>
 				<th scope="col">댓글 내용</th>
 				<th scope="col">댓글 작성일</th>
-				<% if ((id != null ) && (id.equals(board.getId())) ) { %>
 				<th scope="col">삭제</th>
-				<% } %>
 			</tr>
 		</thead>
 
 		<tbody>
-			<c:forEach var="commentList" items="${commentList}">
+			<%for(CommentVO comment : commentList) {%>
 				<tr>
-					<td class="text_ct">${commentList.name}&nbsp;</td>
-					<td class="text_ct">${commentList.id}</td>
-					<td class="text_ct">${commentList.comment}</td>
-					<td class="text_ct"><fmt:formatDate value="${commentList.date}"
+					<td class="text_ct"><%=comment.getName() %></td>
+					<td class="text_ct"><%=comment.getId() %></td>
+					<td class="text_ct"><%=comment.getComment() %></td>
+					<td class="text_ct"><fmt:formatDate value="<%=comment.getDate() %>"
 							pattern="yyyy/MM/dd" /></td>
-					<% if ((id != null ) && (id.equals(board.getId())) ) { %>
+					<% if ((id != null ) && ((id.equals(board.getId())) || (id.equals(comment.getId())))) { %>
 					<td class="text_ct">
-						<a href='deleteCommet?commentNo=${commentList.commentNo}&
+						<a href='deleteCommet?commentNo=<%=comment.getCommentNo() %>&
 						boardNo=${listArray.boardNo}'>
 						삭제</a>
 					</td>
 					<% } %>
 				</tr>
-			</c:forEach>
+			<% } %>
 		</tbody>
 	</table>
 
