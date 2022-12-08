@@ -19,7 +19,7 @@ margin: 5px 25px; padding: 20px
 	String id = (String)session.getAttribute("id");
 	String name = (String)session.getAttribute("name");
 %>
-    <form action = "create2.do" class="center" method="post">
+    <form action = "create2.do" class="center" method="post" enctype="multipart/form-data">
         <h2>Create Page</h2>
         <div class="form-group">
               <label>ID</label>
@@ -37,7 +37,7 @@ margin: 5px 25px; padding: 20px
             <label>Contents</label>
             <input class="form-control" name="contents" placeholder="내용 적어주세요.">
         </div>
-        <div class="form-group">
+        <div class="form-group" >
             <label>file</label>
             <input  class="form-control" type="file" name="file"><br>
         </div>
