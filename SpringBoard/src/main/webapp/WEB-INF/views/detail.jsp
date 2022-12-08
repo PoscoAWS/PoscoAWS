@@ -145,43 +145,6 @@
   <meta charset="utf-8" />
   <title>Table Style</title>
   <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
-	<!-- kakao sdk 호출 -->
-<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-
-<script type="text/javascript">
-  // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
-  Kakao.init('2b17cff530baee65d3a277587567ca48');
-
-  // SDK 초기화 여부를 판단합니다.
-  console.log(Kakao.isInitialized());
-
-  function kakaoShare() {
-    Kakao.Link.sendDefault({
-      objectType: 'feed',
-      content: {
-        title: '카카오공유하기 시 타이틀',
-        description: '카카오공유하기 시 설명',
-        imageUrl: 'https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
-        link: {
-          mobileWebUrl: 'https://developers.kakao.com',
-          webUrl: 'https://developers.kakao.com',
-        },
-      },
-      buttons: [
-        {
-          title: '웹으로 보기',
-          link: {
-            mobileWebUrl: 'https://developers.kakao.com',
-            webUrl: 'https://developers.kakao.com',
-          },
-        },
-      ],
-      // 카카오톡 미설치 시 카카오톡 설치 경로이동
-      installTalk: true,
-    })
-  }
-</script>
-	
 	<style>
 	@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
 
@@ -345,8 +308,49 @@ bottom: 100px;
   background-position: right;
 }
 	</style>
-</head>
+	
+	<%
+	String id = (String)session.getAttribute("id");
+   	BoardVO board = (BoardVO)request.getAttribute("listArray");
+%>
 
+<!-- kakao sdk 호출 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script type="text/javascript">
+  // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
+  Kakao.init('2b17cff530baee65d3a277587567ca48');
+
+  // SDK 초기화 여부를 판단합니다.
+  console.log(Kakao.isInitialized());
+
+  function kakaoShare() {
+    Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: 'SpringBoard',
+        description: '게시판 글 공유',
+        imageUrl: 'https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
+        link: {
+          mobileWebUrl: 'http://52.197.203.173:80/SpringBoard/detail.do?boardNo=' + <%=board.getBoardNo()%>,
+          webUrl: 'http://52.197.203.173:80/SpringBoard/detail.do?boardNo=' + <%=board.getBoardNo()%>,
+        },
+      },
+      buttons: [
+        {
+          title: '웹으로 보기',
+          link: {
+            mobileWebUrl: 'http://52.197.203.173:80/SpringBoard/detail.do?boardNo=' + <%=board.getBoardNo()%>,
+            webUrl: 'http://52.197.203.173:80/SpringBoard/detail.do?boardNo=' + <%=board.getBoardNo()%>,
+          },
+        },
+      ],
+      // 카카오톡 미설치 시 카카오톡 설치 경로이동
+      installTalk: true,
+    })
+  }
+  // https://localhost:8080/SpringBoard/detail.do?boardNo=' + <%=board.getBoardNo()%>
+</script>
+</head>
 <body>
 <div>
 <div class="table-title">
@@ -383,13 +387,11 @@ bottom: 100px;
 </tbody>
 </table>
 </div>
-  <a id="kakao-link-btn" href="javascript:kakaoShare()">
+    <a id="kakao-link-btn" href="javascript:kakaoShare()">
     	<img src="https://t1.daumcdn.net/cfile/tistory/99BEE8465C3D7D1214" style= "position: relative; top: 112px; right:23px;" />
     </a>
     
     <%
-		String id = (String)session.getAttribute("id");
-    	BoardVO board = (BoardVO)request.getAttribute("listArray");
     	System.out.println(board.getId());
     	if (id != null && id.equals(board.getId()))
     		out.println("<a  class='btn' href='update.do?boardNo="+board.getBoardNo() +"'>수정</a></br>");
@@ -440,7 +442,7 @@ bottom: 100px;
 			<% } %>
 		</tbody>
 	</table>
-
+	
 
   </body>
   

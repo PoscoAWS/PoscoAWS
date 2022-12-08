@@ -8,10 +8,10 @@
 </head>
 <body>
 	<% session.invalidate(); 
-	response.sendRedirect("index2.jsp");
+	response.sendRedirect("index.jsp");
 	%>
 	
 	<h1>로그아웃</h1>
-	<a href="index2.jsp">처음으로</a><br/>
+	<a href="index.jsp">처음으로</a><br/>
 </body>
 </html>
