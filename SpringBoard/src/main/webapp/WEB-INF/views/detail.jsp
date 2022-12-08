@@ -15,11 +15,6 @@
 <%
 	String id = (String)session.getAttribute("id");
    	BoardVO board = (BoardVO)request.getAttribute("listArray");
-   	System.out.println(board.getId());
-   	if (id != null && id.equals(board.getId()))
-   		out.println("<a href='update.do?boardNo="+board.getBoardNo() +"'>수정</a></br>");
-   	if (id != null && id.equals(board.getId()))
-   		out.println("<a href='delete.do?boardNo="+board.getBoardNo() +"'>삭제</a>");
 %>
 
 <!-- kakao sdk 호출 -->
@@ -79,10 +74,9 @@
             <td>글내용</td><td>${listArray.contents}</td>
         </tr>
         <tr><td>ID</td><td>${listArray.id}</td></tr>
-        </tr>
-        <tr><td>파일</td><td><img src="${listArray.file}" style="width:100px; height:100px;"></td></tr>
+       	
+        <tr><td>파일</td><td><video src="./${listArray.file}" ></video></td></tr>
     </table>
-    
     <a id="kakao-link-btn" href="javascript:kakaoShare()">
     	<img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" />
     </a>

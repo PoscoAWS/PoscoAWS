@@ -39,7 +39,7 @@ margin: 5px 25px; padding: 20px
         </div>
         <div class="form-group" >
             <label>file</label>
-            <input  class="form-control" type="file" name="file"><br>
+            <input  class="form-control" type="file" name="file" ><br>
         </div>
        
     	<button type="submit" class="btn btn-outline-info">등록</button>
