@@ -25,6 +25,5 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 	<mvc:view-controller path="newUser" view-name="newUser"/>
 	<mvc:view-controller path="login" view-name="loginUser"/>
 	<mvc:view-controller path="logout" view-name="logout"/>
-
 	
 </beans>

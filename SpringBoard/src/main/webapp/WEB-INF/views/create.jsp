@@ -15,15 +15,19 @@ margin: 5px 25px; padding: 20px
 <title>Create</title>
 </head>
 <body>
-    <form class="center" method="post">
+<%
+	String id = (String)session.getAttribute("id");
+	String name = (String)session.getAttribute("name");
+%>
+    <form action = "create2.do" class="center" method="post">
         <h2>Create Page</h2>
         <div class="form-group">
               <label>ID</label>
-            <input type="text" class="form-control" name="id" placeholder="아이디 작성해주세요.">
+            <input type="text" class="form-control" name="id" value="<%=id %>" readonly placeholder="아이디 작성해주세요.">
         </div>
         <div class="form-group">
             <label>Name</label>
-            <input type="text" class="form-control" name="name" placeholder="이름 적어주세요.">
+            <input type="text" class="form-control" name="name" value="<%=name %>" readonly placeholder="이름 적어주세요.">
         </div>
         <div class="form-group">
             <label>Title</label>
@@ -33,8 +37,12 @@ margin: 5px 25px; padding: 20px
             <label>Contents</label>
             <input class="form-control" name="contents" placeholder="내용 적어주세요.">
         </div>
+        <div class="form-group">
+            <label>file</label>
+            <input  class="form-control" type="file" name="uploadFile"><br>
+        </div>
        
-    <button type="submit" class="btn btn-outline-info"><a href="create2.do">등록</button>
+    <button type="submit" class="btn btn-outline-info">등록</button>
     <button type="submit" class="btn btn-outline-info"><a href="list.do">돌아가기</a></button>
     </form>
 </body>

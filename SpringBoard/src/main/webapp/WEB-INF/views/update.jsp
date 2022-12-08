@@ -1,3 +1,4 @@
+<%@page import="Pack01.BoardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -8,20 +9,25 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+
+<%
+	BoardVO board = (BoardVO)request.getAttribute("board");
+%>
 <body>
     <h2>Update page</h2>
-    <form name="update" method="POST" action="${path}update?no=${data.no}">
-        <div>글번호 : ${data.no}</div>
+    <form name="update" method="POST" action="update.do?boardNo=<%= board.getBoardNo() %>">
+        <div>글번호 : <%= board.getBoardNo() %></div>
         <div>이름 : </div>
-        <div><input name="name" value="${data.name}" type="text"/></div>
+        <div><input name="name" value="<%= board.getName() %>" type="text" readonly="readonly"/></div>
         <div>ID : </div>
-        <div><input name="id" value="${data.id}" type="text"/></div>
-        <div>GOAL</div>
-        <div><input name="goal" value="${data.goal}" type="text"/></div>
+        <div><input name="id" value="<%= board.getId() %>" type="text" readonly="readonly"/></div>
+        <div>Title</div>
+        <div><input name="title" value="<%= board.getTitle() %>" type="text"/></div>
+        <div>글 내용</div>
+        <div><input name="contents" value="<%= board.getContents() %>" type="text"/></div>
         <div>작성일자</div>
-        <div><fmt:formatDate value="${data.date}" pattern="yyyy/MM/dd" /></div>
-        <div>작성시간</div>
-        <div><fmt:formatDate value="${data.time}" pattern="HH:mm:ss" /></div>
+        <div><fmt:formatDate value="<%= board.getDate() %>" pattern="yyyy/MM/dd" /></div>
+        
         
         <div>        
             <input type="submit" class="btn btn-outline-info" value="완료"/>
