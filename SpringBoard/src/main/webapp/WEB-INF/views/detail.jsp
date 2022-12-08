@@ -11,9 +11,19 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+<%
+	String id = (String)session.getAttribute("id");
+   	BoardVO board = (BoardVO)request.getAttribute("listArray");
+   	System.out.println(board.getId());
+   	if (id != null && id.equals(board.getId()))
+   		out.println("<a href='update.do?boardNo="+board.getBoardNo() +"'>수정</a></br>");
+   	if (id != null && id.equals(board.getId()))
+   		out.println("<a href='delete.do?boardNo="+board.getBoardNo() +"'>삭제</a>");
+%>
+
 <!-- kakao sdk 호출 -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-
 <script type="text/javascript">
   // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
   Kakao.init('2b17cff530baee65d3a277587567ca48');
@@ -25,20 +35,20 @@
     Kakao.Link.sendDefault({
       objectType: 'feed',
       content: {
-        title: '카카오공유하기 시 타이틀',
-        description: '카카오공유하기 시 설명',
+        title: 'SpringBoard',
+        description: '게시판 글 공유',
         imageUrl: 'https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
         link: {
-          mobileWebUrl: 'https://developers.kakao.com',
-          webUrl: 'https://developers.kakao.com',
+          mobileWebUrl: 'http://localhost:8080/SpringBoard/detail.do?boardNo=' + <%=board.getBoardNo()%>,
+          webUrl: 'http://localhost:8080/SpringBoard/detail.do?boardNo=' + <%=board.getBoardNo()%>,
         },
       },
       buttons: [
         {
           title: '웹으로 보기',
           link: {
-            mobileWebUrl: 'https://developers.kakao.com',
-            webUrl: 'https://developers.kakao.com',
+            mobileWebUrl: 'http://localhost:8080/SpringBoard/detail.do?boardNo=' + <%=board.getBoardNo()%>,
+            webUrl: 'http://localhost:8080/SpringBoard/detail.do?boardNo=' + <%=board.getBoardNo()%>,
           },
         },
       ],
@@ -46,6 +56,7 @@
       installTalk: true,
     })
   }
+  // https://localhost:8080/SpringBoard/detail.do?boardNo=' + <%=board.getBoardNo()%>
 </script>
 </head>
 <body>
@@ -75,11 +86,10 @@
     <a id="kakao-link-btn" href="javascript:kakaoShare()">
     	<img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" />
     </a>
-	
+
+
 	<%
-		String id = (String)session.getAttribute("id");
 		String name = (String)session.getAttribute("name");
-		BoardVO board = (BoardVO)request.getAttribute("listArray");
 		List<CommentVO> commentList = (List<CommentVO>)request.getAttribute("commentList");
 		if (id != null) {
 	%>
@@ -132,5 +142,7 @@
     		out.println("<a href='delete.do?boardNo="+board.getBoardNo() +"'>삭제</a></br>");
 	%>
     <a href="boardList">게시판으로</a><br/>
+
+
 </body>
 </html>

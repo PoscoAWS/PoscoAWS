@@ -42,5 +42,34 @@ public class UserInsertDao {
 			return false;
 		}
 	}
+
+	public boolean kakaoSignUp(UserVO userVO) {
+		try {
+			String url = MysqlAddr.URL;
+			String user = MysqlAddr.USER;
+			String pwd = MysqlAddr.PWD;
+			
+			PreparedStatement psmt = null;
+			Connection con = null;
+			
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con = DriverManager.getConnection(url, user,pwd);
+			
+			String sql = "insert into user(name, id) values(?, ?)";
+			psmt = con.prepareStatement(sql);
+			
+			psmt.setString(1, userVO.getName());
+			psmt.setString(2, userVO.getId());
+			
+			psmt.executeUpdate();
+			
+			psmt.close();
+			con.close();
+			
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
 	 
 }
