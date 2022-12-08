@@ -23,7 +23,7 @@ function secession() {
     	success: function(response) {
     		console.log(response);
     		//callback(); //연결끊기(탈퇴)성공시 서버에서 처리할 함수
-    		window.location.href='logout'
+    		window.location.href='logout';
     	},
     	fail: function(error) {
     		console.log('탈퇴 미완료')
@@ -53,4 +53,5 @@ function secession() {
 	%>
 	<a href="newUser">회원 가입</a><br/>
 	<a href="boardList">게시판</a><br/>
+	
 </body>

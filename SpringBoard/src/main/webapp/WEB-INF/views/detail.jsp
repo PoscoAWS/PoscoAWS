@@ -75,7 +75,10 @@
         </tr>
         <tr><td>ID</td><td>${listArray.id}</td></tr>
        	
-        <tr><td>파일</td><td><video src="./${listArray.file}" ></video></td></tr>
+        <%-- <tr><td>파일</td><td><img src="${listArray.file}" ></img></td></tr> --%>
+        <tr><td>파일</td><td><video controls autoplay src="${listArray.file}"></video></td></tr>
+        
+        
     </table>
     <a id="kakao-link-btn" href="javascript:kakaoShare()">
     	<img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" />
@@ -136,7 +139,7 @@
     		out.println("<a href='delete.do?boardNo="+board.getBoardNo() +"'>삭제</a></br>");
 	%>
     <a href="boardList">게시판으로</a><br/>
-
+	
 
 </body>
 </html>
