@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -42,6 +41,8 @@ public class BoardListDao {
 		    
 		    while(rs.next()) {
 		    	
+		    	int boardNo = rs.getInt("boardNo");
+		    	
 		    	String name = rs.getString("name");
 
 				String id = rs.getString("id");
@@ -49,10 +50,12 @@ public class BoardListDao {
 				String title = rs.getString("title");
 
 				String contents = rs.getString("contents");
-
+				
 				Date date = rs.getDate("date");	
 				
-				list.add(new BoardVO(name, id, title, contents, date));
+				String file = rs.getString("file");
+				
+				list.add(new BoardVO(boardNo, name, id, title, contents, date, file));
 		    }
 		    
 		    return list;

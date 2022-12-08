@@ -1,21 +1,42 @@
 package Pack01;
-
 import java.util.Date;
 
 public class BoardVO {
+	int boardNo;
 	String name;
 	String id;
 	String title;
 	String contents;
 	Date date;
+	String file;
 	
-	public BoardVO(String name, String id, String title, String contents, Date date) {
+	public BoardVO() {}
+	
+	public BoardVO(int boardNo, String name, String id, String title, String contents, Date date, String file) {
 		super();
+		this.boardNo = boardNo;
 		this.name = name;
 		this.id = id;
 		this.title = title;
 		this.contents = contents;
 		this.date = date;
+		this.file = file;
+	}
+
+	public String getFile() {
+		return file;
+	}
+
+	public void setFile(String file) {
+		this.file = file;
+	}
+
+	public int getBoardNo() {
+		return boardNo;
+	}
+
+	public void setBoardNo(int boardNo) {
+		this.boardNo = boardNo;
 	}
 
 	public String getName() {
@@ -57,8 +78,5 @@ public class BoardVO {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-
-	
-	
 	
 }
