@@ -133,7 +133,7 @@ text-align:center;
 	String id2 = (String)session.getAttribute("id");
     
     if(id2 != null) {
-    	out.println("<a href='create.do' class='btn'>게시글 작성</a><br/><a href='logout' class='btn'>로그아웃</a><br/>");
+    	out.println("<a href='create.do' class='btn'>게시글 작성</a><br/><a href='logout' class='btn' style='bottom:20px; right:10px;'>로그아웃</a><br/>");
     } else {
     	out.println("<a href='index2.jsp' class='btn'>처음으로</a><br/>");
     }

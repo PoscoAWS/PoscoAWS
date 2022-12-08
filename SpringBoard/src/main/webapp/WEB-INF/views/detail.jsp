@@ -147,7 +147,7 @@
   <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
 	<!-- kakao sdk 호출 -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <script type="text/javascript">
   // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
   Kakao.init('2b17cff530baee65d3a277587567ca48');
@@ -335,20 +335,38 @@ font-weight: bold;
   cursor: pointer;
   transition: .5s;
   text-align: center;
-   padding-top: 20px;
+   padding-top: 12px;
    font-weight: bold;
    text-decoration:none;
        position: relative;
-bottom: 100px;       
+bottom: 110px;       
 }
 .btn:hover{
   background-position: right;
+}
+.b{
+text-align: center;
+background-color: #90ee90;
+width: 150px;
+  height: 30px;
+  left: 30px;
+  top: 15px;
+
+  font-family: Quantico;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 34px;
+
+  color: #FFFFFF;
+border-right:none;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
 }
 	</style>
 </head>
 
 <body>
-<div>
+<div style= "margin: 5px 25px;">
 <div class="table-title">
 <h2 style = "font-weight : bold; margin-bottom: 50px; font-size:30px;">게시글 상세보기</h2>
 </div>
@@ -382,11 +400,12 @@ bottom: 100px;
 </tr>
 </tbody>
 </table>
-</div>
+
   <a id="kakao-link-btn" href="javascript:kakaoShare()">
-    	<img src="https://t1.daumcdn.net/cfile/tistory/99BEE8465C3D7D1214" style= "position: relative; top: 112px; right:23px;" />
+    	<img src="https://blog.kakaocdn.net/dn/Sq4OD/btqzlkr13eD/dYwFnscXEA6YIOHckdPDDk/img.jpg" style= "position: relative; top: 13px; right:-217px; width: 80px;" />
     </a>
-    
+    <div style = "position: relative;
+    top: 30px;">
     <%
 		String id = (String)session.getAttribute("id");
     	BoardVO board = (BoardVO)request.getAttribute("listArray");
@@ -394,7 +413,7 @@ bottom: 100px;
     	if (id != null && id.equals(board.getId()))
     		out.println("<a  class='btn' href='update.do?boardNo="+board.getBoardNo() +"'>수정</a></br>");
     	if (id != null && id.equals(board.getId()))
-    		out.println("<a  class='btn' style = 'position: relative; bottom: 221px; left: 108px;' href='delete.do?boardNo="+board.getBoardNo() +"'>삭제</a>");
+    		out.println("<a  class='btn' style = 'position: relative; bottom: 216px; left: 108px;' href='delete.do?boardNo="+board.getBoardNo() +"'>삭제</a>");
 	%>  
 	<%
 		String name = (String)session.getAttribute("name");
@@ -405,19 +424,21 @@ bottom: 100px;
 		<input type="hidden" name="boardNo" value=<%=board.getBoardNo()%> readonly="readonly" />	
 		<input type="hidden" name="name" value=<%=name%> readonly="readonly" />	
 		<input type="hidden" name="id" value=<%=id%> readonly="readonly"/>
-		<label>댓글 내용 </label>
-		<input type="text" name="comment" />
-		<input type="submit" value="댓글 작성" /><br/>	
+		<div class="form-group">
+		<div class ="b">COMMENT</div>
+            <textarea class="form-control" name="comment" placeholder="댓글내용 적어주세요."  style=" border: 1px solid #ddd; border-radius: 4px; padding: 4px; margin: 3px 0;  width: 100%; height: 160px;"></textarea>
+        </div>
+		<input class = "btn" type="submit" value="댓글 작성" style="top:25px; width:8%;"/><br/>	
 	</form>
 	<% } %>
-	<table border="1">
+	<table border="1" style = "border: white;">
 		<thead>
 			<tr>
-				<th scope="col">댓글작성자</th>
-				<th scope="col">댓글작성자 ID</th>
-				<th scope="col">댓글 내용</th>
-				<th scope="col">댓글 작성일</th>
-				<th scope="col">삭제</th>
+				<th scope="col" class = "b" style ="width: 171px;">댓글작성자</th>
+				<th scope="col" class = "b" style ="width: 202px;">댓글작성자 ID</th>
+				<th scope="col" class = "b"style ="width: 600px;">댓글 내용</th>
+				<th scope="col" class = "b" style ="width: 190px;">댓글 작성일</th>
+				<th scope="col" class = "b" style ="width: 155px;">삭제</th>
 			</tr>
 		</thead>
 
@@ -441,7 +462,8 @@ bottom: 100px;
 		</tbody>
 	</table>
 
-
+</div>
+</div>
   </body>
   
   <%@ include file="../fix/footer.jsp" %>
