@@ -1,4 +1,5 @@
 package Pack01;
+import java.io.InputStream;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,12 +33,15 @@ public class BoardController2 {
 		String name = request.getParameter("name");
 		String title = request.getParameter("title");
 		String contents = request.getParameter("contents");
+		String file = request.getParameter("file");
 		
 		BoardVO board = new BoardVO();
 		board.setId(id);
 		board.setName(name);
 		board.setTitle(title);
 		board.setContents(contents);
+		board.setFile(file);
+		
 		
 		BoardCreateDao.boardInsert(board);
 		List<BoardVO> allList = BoardListDao.getList();

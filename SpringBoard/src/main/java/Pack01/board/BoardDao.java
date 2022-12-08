@@ -1,11 +1,22 @@
 package Pack01.board;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.imageio.ImageIO;
+import javax.servlet.ServletOutputStream;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 import org.springframework.stereotype.Repository;
 
@@ -32,6 +43,7 @@ public class BoardDao {
 					dto.setTitle(rs.getString("title"));
 					dto.setContents(rs.getString("contents"));
 					dto.setDate(rs.getDate("date"));
+					dto.setFile(rs.getString("file"));
 					res.add(dto);
 				}
 			}

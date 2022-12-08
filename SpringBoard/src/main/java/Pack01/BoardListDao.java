@@ -53,7 +53,9 @@ public class BoardListDao {
 				
 				Date date = rs.getDate("date");	
 				
-				list.add(new BoardVO(boardNo, name, id, title, contents, date));
+				String file = rs.getString("file");
+				
+				list.add(new BoardVO(boardNo, name, id, title, contents, date, file));
 		    }
 		    
 		    return list;

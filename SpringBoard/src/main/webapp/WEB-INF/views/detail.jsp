@@ -66,6 +66,8 @@
             <td>글내용</td><td>${listArray.contents}</td>
         </tr>
         <tr><td>ID</td><td>${listArray.id}</td></tr>
+        </tr>
+        <tr><td>파일</td><td><img src="${listArray.file}" style="width:100px; height:100px;"></td></tr>
     </table>
     
     <a id="kakao-link-btn" href="javascript:kakaoShare()">

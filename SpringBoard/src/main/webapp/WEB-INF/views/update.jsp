@@ -27,6 +27,8 @@
         <div><input name="contents" value="<%= board.getContents() %>" type="text"/></div>
         <div>작성일자</div>
         <div><fmt:formatDate value="<%= board.getDate() %>" pattern="yyyy/MM/dd" /></div>
+        <div>파일</div>
+        <div><input name="file" value="<%= board.getFile() %>" type="text" readonly="readonly"/></div>
         
         
         <div>        

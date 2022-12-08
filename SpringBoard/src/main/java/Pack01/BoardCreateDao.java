@@ -36,14 +36,14 @@ public class BoardCreateDao {
 			Statement stmt = con.createStatement();
 			List<BoardVO> list = new ArrayList<>();
 			
-			String sql = "insert into board(boardNo, id, name, title, contents, date) values(NULL,?,?,?,?,now())";
+			String sql = "insert into board(boardNo, id, name, title, contents, file, date) values(NULL,?,?,?,?,?,now())";
 			
 			psmt = con.prepareStatement(sql);
 			psmt.setString(1, board.getId());
 			psmt.setString(2, board.getName());
 			psmt.setString(3, board.getTitle());
 			psmt.setString(4, board.getContents());
-			
+			psmt.setString(5, board.getFile());
 		
 		    res = psmt.executeUpdate();
 			

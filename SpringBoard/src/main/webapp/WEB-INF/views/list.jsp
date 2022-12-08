@@ -19,6 +19,7 @@
   <th scope="col">제목</th>
   <th scope="col">내용</th>
   <th scope="col">작성일</th>
+  <th scope="col">파일</th>
   </tr>
  </thead>
  
@@ -30,6 +31,7 @@
             <td class="text_ct"><a href="detail.do?boardNo=${listArray.boardNo}">${listArray.title}</a></td>
             <td class="text_ct">${listArray.contents}</td>
             <td class="text_ct"><fmt:formatDate value="${listArray.date}" pattern="yyyy/MM/dd" /></td>
+            <td class="text_ct">${listArray.file}</td>
 	 </tr>
 	</c:forEach>
  </tbody> 

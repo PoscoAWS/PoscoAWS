@@ -8,10 +8,11 @@ public class BoardVO {
 	String title;
 	String contents;
 	Date date;
+	String file;
 	
 	public BoardVO() {}
 	
-	public BoardVO(int boardNo, String name, String id, String title, String contents, Date date) {
+	public BoardVO(int boardNo, String name, String id, String title, String contents, Date date, String file) {
 		super();
 		this.boardNo = boardNo;
 		this.name = name;
@@ -19,6 +20,15 @@ public class BoardVO {
 		this.title = title;
 		this.contents = contents;
 		this.date = date;
+		this.file = file;
+	}
+
+	public String getFile() {
+		return file;
+	}
+
+	public void setFile(String file) {
+		this.file = file;
 	}
 
 	public int getBoardNo() {

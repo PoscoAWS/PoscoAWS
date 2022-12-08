@@ -2,6 +2,9 @@ package Pack01.board;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +21,7 @@ public class BoardController {
 	BoardDao boardDao;
 	
 	@RequestMapping(value="boardList", method=RequestMethod.GET)
-	public String getList(Model model) {
+	public String getList(Model model, HttpServletRequest request,HttpServletResponse response) {
 		List<BoardVO> allList = boardDao.getList();
 		model.addAttribute("allList", allList);
 		return "list";
@@ -35,6 +38,7 @@ public class BoardController {
 		model.addAttribute("allList", allList);
 		return "list";
 	}
+	
 	
 //	@RequestMapping(value = "detail.do", method = RequestMethod.GET)
 //    public String getdetail(Model model, @RequestParam(value="boardNo") int boardNo) {
