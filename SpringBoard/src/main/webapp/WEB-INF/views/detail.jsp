@@ -75,12 +75,12 @@
         </tr>
         <tr><td>ID</td><td>${listArray.id}</td></tr>
        	
-        <tr><td>파일</td><td><video src="./${listArray.file}" ></video></td></tr>
+        <tr><td>파일</td><td><video src="${listArray.file}" ></video></td></tr>
     </table>
     <a id="kakao-link-btn" href="javascript:kakaoShare()">
     	<img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" />
     </a>
-
+	<a href="https://www.youtube.com/watch?v=ihtn_k_OH_4">동영상 보기</a>
 
 	<%
 		String name = (String)session.getAttribute("name");
