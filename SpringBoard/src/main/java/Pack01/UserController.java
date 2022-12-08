@@ -68,7 +68,9 @@ public class UserController {
 		model.addAttribute("name", name);
 		model.addAttribute("id", id);
 		
-		return "loginEnd";
+		List<BoardVO> allList = BoardListDao.getList();
+		model.addAttribute("allList", allList);
+		return "list";	
 	}
 
 	@RequestMapping(value="kakaoSignUp", produces = "application/json; charset=UTF-8")

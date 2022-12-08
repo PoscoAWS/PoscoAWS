@@ -88,6 +88,33 @@ text-align:center;
   background-position: right;
 }
 </style>
+<!-- 카카오 스크립트 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script type="text/javascript">
+Kakao.init('2b17cff530baee65d3a277587567ca48'); //발급받은 키 중 javascript키를 사용해준다.
+function logoutCheck() {
+	if (!Kakao.Auth.getAccessToken()) {
+		window.location.href='logout';
+	} else {
+		secession();
+	}
+}
+
+function secession() {
+	Kakao.API.request({
+    	url: '/v1/user/unlink',
+    	success: function(response) {
+    		console.log(response);
+    		//callback(); //연결끊기(탈퇴)성공시 서버에서 처리할 함수
+    		window.location.href='logout'
+    	},
+    	fail: function(error) {
+    		console.log('탈퇴 미완료')
+    		console.log(error);
+    	},
+	});
+};
+</script>
 </head>
 <%
 	String name = (String)request.getAttribute("name");
@@ -133,9 +160,11 @@ text-align:center;
 	String id2 = (String)session.getAttribute("id");
     
     if(id2 != null) {
-    	out.println("<a href='create.do' class='btn'>게시글 작성</a><br/><a href='logout' class='btn' style='bottom:20px; right:10px;'>로그아웃</a><br/>");
+
+    	out.println("<a href='create.do' class='btn'>게시글 작성</a><br/><a href='javascript:logoutCheck();' class='btn' style = 'bottom: 20px; margin-right: 10PX;'>로그아웃</a><br/>");
+
     } else {
-    	out.println("<a href='index2.jsp' class='btn'>처음으로</a><br/>");
+    	out.println("<a href='index.jsp' class='btn'>처음으로</a><br/>");
     }
 %>
 
