@@ -350,16 +350,16 @@ border-right:none;
         description: '게시판 글 공유',
         imageUrl: 'https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
         link: {
-          mobileWebUrl: 'http://52.197.203.173:80/SpringBoard/detail.do?boardNo=' + <%=board.getBoardNo()%>,
-          webUrl: 'http://52.197.203.173:80/SpringBoard/detail.do?boardNo=' + <%=board.getBoardNo()%>,
+          mobileWebUrl: 'http://54.199.201.157/SpringBoard/detail.do?boardNo=' + <%=board.getBoardNo()%>,
+          webUrl: 'http://54.199.201.157/SpringBoard/detail.do?boardNo=' + <%=board.getBoardNo()%>,
         },
       },
       buttons: [
         {
           title: '웹으로 보기',
           link: {
-            mobileWebUrl: 'http://52.197.203.173:80/SpringBoard/detail.do?boardNo=' + <%=board.getBoardNo()%>,
-            webUrl: 'http://52.197.203.173:80/SpringBoard/detail.do?boardNo=' + <%=board.getBoardNo()%>,
+            mobileWebUrl: 'http://54.199.201.157/SpringBoard/detail.do?boardNo=' + <%=board.getBoardNo()%>,
+            webUrl: 'http://54.199.201.157/SpringBoard/detail.do?boardNo=' + <%=board.getBoardNo()%>,
           },
         },
       ],
@@ -437,7 +437,8 @@ border-right:none;
 		<div class ="b">COMMENT</div>
             <textarea class="form-control" name="comment" placeholder="댓글내용 적어주세요."  style=" border: 1px solid #ddd; border-radius: 4px; padding: 4px; margin: 3px 0;  width: 100%; height: 160px;"></textarea>
         </div>
-		<input class = "btn" type="submit" value="댓글 작성" style="top:25px; width:8%;"/><br/>	
+		<input class = "btn" type="submit" value="댓글 작성" style="top:25px; width:8%;"/>	
+		<a href='boardList' class="btn" style="top: -391px; width:8%; left:1320px; bottom: 112px;" >목록</a><br/>
 	</form>
 	<% } %>
 	<table border="1" style = "border: white;">

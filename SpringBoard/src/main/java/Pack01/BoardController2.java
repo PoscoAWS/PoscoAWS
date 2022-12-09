@@ -55,9 +55,7 @@ public class BoardController2 {
 		// 1. 파일 저장 경로 설정 : 실제 서비스되는 위치(프로젝트 외부에 저장)
 		//String uploadPath = filePath.substring(1, filePath.length());
 //		String uploadPath = "C:\\isohyeon\\GitHub\\PoscoAWS\\SpringBoard\\src\\main\\webapp\\";
-		String imagePath = request.getServletContext().getRealPath("/");
-		System.out.println("imagePath :" + imagePath);
-		String uploadPath = "C:/isohyeon/GitHub/PoscoAWS/SpringBoard/src/main/webapp/";
+		String uploadPath = "/var/lib/tomcat9/webapps/";
 		System.out.println(uploadPath);
 		// 2. 원본 파일 이름 알아오기
 		String originalFileName = file.getOriginalFilename();
@@ -77,7 +75,7 @@ public class BoardController2 {
 		board.setName(name);
 		board.setTitle(title);
 		board.setContents(contents);
-		board.setFile(savedFileName);
+		board.setFile(uploadPath + savedFileName);
 
 		
 		

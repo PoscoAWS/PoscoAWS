@@ -96,6 +96,7 @@ function logoutCheck() {
 	if (!Kakao.Auth.getAccessToken()) {
 		window.location.href='logout';
 	} else {
+		window.location.href='logout';
 		secession();
 	}
 }
