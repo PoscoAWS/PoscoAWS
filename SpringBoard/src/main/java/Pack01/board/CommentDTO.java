@@ -14,7 +14,7 @@ public class CommentDTO {
 		this.comment = comment;
 	}
 	public int getBoardNo() {
-		return boardNo;
+		return boardNo;		
 	}
 	public void setBoardNo(int boardNo) {
 		this.boardNo = boardNo;

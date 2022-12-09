@@ -403,10 +403,12 @@ border-right:none;
 <td class="text-left2" style = "height:300px;">글내용</td>
 <td class="text-left" style = "height:300px;" >${listArray.contents}</td>
 </tr>
+<% if(board.getFile().split("_").length != 1) { %>
 <tr>
 <td class="text-left2" style = "height:300px;">영상</td>
 <td class="text-left" style = "height:300px;" ><video controls autoplay src="${listArray.file}"></video></td>
 </tr>
+<%} %>
 </tbody>
 </table>
 
