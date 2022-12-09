@@ -350,16 +350,16 @@ border-right:none;
         description: '게시판 글 공유',
         imageUrl: 'https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
         link: {
-          mobileWebUrl: 'http://54.199.201.157/SpringBoard/detail.do?boardNo=' + <%=board.getBoardNo()%>,
-          webUrl: 'http://54.199.201.157/SpringBoard/detail.do?boardNo=' + <%=board.getBoardNo()%>,
+          mobileWebUrl: 'http://52.194.132.78/SpringBoard/detail.do?boardNo=' + <%=board.getBoardNo()%>,
+          webUrl: 'http://52.194.132.78/SpringBoard/detail.do?boardNo=' + <%=board.getBoardNo()%>,
         },
       },
       buttons: [
         {
           title: '웹으로 보기',
           link: {
-            mobileWebUrl: 'http://54.199.201.157/SpringBoard/detail.do?boardNo=' + <%=board.getBoardNo()%>,
-            webUrl: 'http://54.199.201.157/SpringBoard/detail.do?boardNo=' + <%=board.getBoardNo()%>,
+            mobileWebUrl: 'http://52.194.132.78/SpringBoard/detail.do?boardNo=' + <%=board.getBoardNo()%>,
+            webUrl: 'http://52.194.132.78/SpringBoard/detail.do?boardNo=' + <%=board.getBoardNo()%>,
           },
         },
       ],

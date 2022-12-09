@@ -201,7 +201,7 @@ a:hover{
 Kakao.init('2b17cff530baee65d3a277587567ca48'); //발급받은 키 중 javascript키를 사용해준다.
 console.log(Kakao.isInitialized()); // sdk초기화여부판단
 
-const path = 'http://54.199.201.157/SpringBoard';
+const path = 'http://52.194.132.78/SpringBoard';
 function kakaoLogin() {
     window.Kakao.Auth.login({
         scope: 'profile_nickname, account_email', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
